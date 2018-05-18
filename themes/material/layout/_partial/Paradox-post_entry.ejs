@@ -1,0 +1,82 @@
+<div class="post_entry-module mdl-card <% if(theme.card_elevation) { %><%= 'mdl-shadow--' + theme.card_elevation + 'dp' %><% } %> mdl-cell mdl-cell--6-col fade my_button" link="<%= url_for(post.path) %>" style="height:360px;">
+    <!-- Post Thumbnail -->
+    <% if(!post.thumbnail) { %>
+        <% if(!theme.thumbnail.purecolor) { %>
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        <% } else { %>
+            <!-- Pure Thumbnail -->
+            <div class="post-thumbnail-pure mdl-card__media mdl-color-text--grey-50" style="background-color:<%= theme.thumbnail.purecolor %> !important">
+        <% } %>
+    <% } else { %>
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy my_button" link="<%= url_for(post.path) %>" style="padding:0px;background-image:url('<%= post.thumbnail %>');" data-original="<%= post.thumbnail %>">
+    <% } %>
+
+        <!-- Post Title -->
+        <p class="article-headline-p mdl-card__title mdl-color-text--grey-50 my_button" link="<%= url_for(post.path) %>" style="background-color:#969696;background-color:rgba(46,46,46,0.5);no-repeat;backgroud-size:cover;height:50px;font-size: 1.4rem;font-family:'Iosevka', 'PingFang SC', 'Microsoft YaHei', 'sans-serif';"><% if(pin) { %><span>[Top]</span><% } %><%= post.title %></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-700 mdl-card__actions post_entry-content my_button" style="font-size:1.05rem;padding:0px;height:96px;">
+		<p class="mdl-card__supporting-text mdl-color-text--grey-700 my_button" link="<%= url_for(post.path) %>" style="font-size:1rem;display:block;padding:12px 16px;height:96px;border-radius: 0px;line-height: 24px;text-align:left;font-family:'Iosevka', 'PingFang SC', 'Microsoft YaHei', 'sans-serif';text-transform: none;">
+        <%if(post.excerpt) {%>
+            <%- strip_html(post.excerpt) %>
+        <%}else{%>
+            <%- strip_html(truncate(post.content,{length: theme.reading.entry_excerpt })) %>
+        <%}%>
+		</p>
+
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__actions meta mdl-color-text--grey-500 my_button" link="<%= url_for(post.path) %>" style="font-size:1.05rem;height:44px;padding:0px;font-family:'Iosevka', 'PingFang SC', 'Microsoft YaHei', 'sans-serif';">
+		<div class="mdl-actions mdl-color-text--grey-500 my_button" style="margin-right:0px;padding:12px 0px 12px 16px;height:44px;border-radius: 0px;line-height: 20px;text-align:left;font-family:'Iosevka', 'PingFang SC', 'Microsoft YaHei', 'sans-serif';text-transform: none;" href="<%= url_for(post.path) %>" target="_self">
+            <!-- Author Avatar -->
+			<span><b>
+            <span> <i class="fa fa-clock"></i>&nbsp<%=date(post.date, 'YYYY-MM-DD') %>&nbsp&nbsp</span>
+          <% if (post.categories && post.categories.length) { %>
+              <!-- Category -->
+              <span class="post_entry-category">
+			  <i class="fa fa-bookmark"></i>
+                  <%- list_categories(post.categories, {
+                      show_count: false,
+                      class: 'sidebar_archives',
+                      style: 'none'
+                  }) %>
+            <% } %>
+                </span>&nbsp
+				<% if(post.tags && post.tags.length) {%>
+				    <span class="post-tag">
+						<i class="fa fa-tag"></i>
+						<span>
+							<%- list_tags(post.tags, {show_count: false}) %>
+						</span>
+					</span>
+				<% }%>
+			  
+			  </b>
+			  </span>
+            <% if(theme.comment.use === 'duoshuo') { %>
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span class="ds-thread-count" data-thread-key="<%= theme.comment.duoshuo_thread_key_type === 'id' ? post.id : post.path %>" data-count-type="comments"></span>
+                </span>
+            <% } %>
+
+            <% if(theme.comment.use === 'changyan') { %>
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::<%= theme.comment.changyan_thread_key_type === 'id' ? post.id : post.path  %>" class = "cy_cmt_count" ></span>条评论
+                </span>
+            <% } %>
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+			</div>
+        </div>
+    </div>
+</div>

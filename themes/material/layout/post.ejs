@@ -1,0 +1,56 @@
+<!-- Post TOC -->
+
+<!-- Layouts -->
+<% if(page.layout === 'tags') { %>
+    <!-- Tags Cloud -->
+    <%- partial('_widget/page-tagcloud') %>
+
+<% } else if(page.layout === 'links') { %>
+    <!-- Single Links Page -->
+    <%- partial('_widget/page-links') %>
+
+<% } else if(page.layout === 'timeline') { %>
+    <!-- Single Timeline Page -->
+    <%- partial('_widget/page-timeline') %>
+
+<% } else { %>
+    <!-- Post Module -->
+	<div id="ajax_change1">
+    <div class="material-post_container" id="ajax_change2" style="transform:scaleX(0);">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-cell mdl-cell--12-col" style="background:rgba(0,0,0,0.0);margin:0;">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                <%- partial('_partial/post-header') %>
+
+
+
+                <!-- Post Content -->
+                <%- partial('_partial/post-content') %>
+
+
+
+                <% if(page.hide_post_info !== true && theme.scheme === 'Isolation') { %>
+                    <!-- Paradox Post Info -->
+                    <%- partial('_partial/Isolation-post-info') %>
+                <% } %>
+
+                <!-- Post Comments -->
+                <% if(page.comment !== false) { %>
+                    <%- partial('_partial/comment') %>
+                <% } %>
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <%- partial('_partial/post-nav') %>
+
+			
+
+
+			
+        </div>
+			     		<%- partial('_partial/toc') %>
+	</div>
+    </div>
+<% } %>

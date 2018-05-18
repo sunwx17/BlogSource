@@ -1,0 +1,72 @@
+<script type="text/javascript">
+  function openshut(souc_, tar_){
+  var souc = document.getElementById(souc_);
+  var tar = document.getElementById(tar_);
+  if($(tar).hasClass('act')){
+
+  $(tar).on('click',function(){
+  $(this).removeClass('active');
+  var i = Math.round(Math.random() * 2);
+  var j = Math.round(Math.random() * 2);
+  cell(i,j).addClass('active');
+  });
+  }
+  else{
+
+  $(tar).addClass = ("act");
+  }
+  }
+</script>
+
+
+
+<div id="music">
+  <span id="now"  class="music my_button">
+    <i class="fa fa-music my_button" aria-hidden="true"></i>
+  </span>
+</div>
+<script>
+  $("div").on('click','#now',function(){
+  var souc = document.getElementById("now");
+  var tar = document.getElementById("skPlayer");
+  if($(tar).hasClass("act")){
+  souc.style.color = "#ffffff";
+  $(tar).removeClass("act");
+  return false;
+  }
+  else{
+  souc.style.color = "#58b2dc";
+  $(tar).addClass("act");
+  return false;
+  }
+  })
+  ;
+</script>
+
+
+
+
+
+<div id="skPlayer">
+  <script>
+    var player = new skPlayer({
+    autoplay: false,
+    //可选项,自动播放,默认为false,true/false
+    listshow: true,
+    //可选项,列表显示,默认为true,true/false
+    mode: 'listloop',
+    //可选项,循环模式,默认为'listloop'
+    //'listloop',列表循环
+    //'singleloop',单曲循环
+    music: {
+    //必需项,音乐配置
+    type: 'cloud',
+    //必需项,网易云方式指定填'cloud'
+    source: 2108961358
+    //必需项,网易云音乐歌单id
+    //登录网易云网页版,在网页地址中拿到
+    // ... playlist?id=317921676
+    }
+    });
+  </script>
+</div>
