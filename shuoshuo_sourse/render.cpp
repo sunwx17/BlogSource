@@ -18,9 +18,12 @@ int main() {
 	ofstream out("../source/shuoshuo/index.md");
 	out << "---\ntitle: 说说\nlayout: shuoshuo\n---" << endl << endl;
 	ifstream in;
+	ifstream max_in("max.txt");
 	int i = 0;
+	max_in >> i;
+	max_in.close();
 	while (true) {
-		in.open("text/" + to_string(i++) + ".txt");
+		in.open("text/" + to_string(i--) + ".txt");
 		if (!in.is_open()) {
 			break;
 		}
@@ -36,7 +39,6 @@ int main() {
 		char * buffer = new char[length+1];
 		in.read(buffer, length);
 		buffer[length] = '\0';
-		
 		out << "<div class='shuoshuo_piece' style='border-top:2px solid " << color << "'><span class='shuoshuo_date' style='background-color: " << color << "; border-right-color:" << color << "'>" << time << "</span><div class='shuoshuo_content'><p>" << buffer << "</p></div></div>";
 		delete[] buffer;
 		in.close();

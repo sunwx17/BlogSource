@@ -12,7 +12,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://sunweixiao.com
+url: http://blog.sunweixiao.com
 root: /
 permalink: posts/:id/
 permalink_defaults:
@@ -86,8 +86,8 @@ theme: material
 deploy:
   type: git
   repo: 
-    github: https://github.com/sunwx17/sunwx17.github.io 
-    coding: https://git.coding.net/sunwx17/sunwx17.coding.me.git 
+    github: https://github.com/sunwx17/blog.git
+    coding: https://git.coding.net/sunwx17/blog.git
   branch: master
 
 # abbrlink config
