@@ -1,3 +1,5 @@
+<!-- <iframe id="music_163" frameborder="no" border="0" marginwidth="0" marginheight="0" width="400" height="280" src="//music.163.com/outchain/player?type=0&id=2108961358&auto=1&height=430"></iframe> -->
+
 <script type="text/javascript">
   function openshut(souc_, tar_){
   var souc = document.getElementById(souc_);
@@ -25,10 +27,11 @@
     <i class="fa fa-music my_button" aria-hidden="true"></i>
   </span>
 </div>
+
 <script>
   $("div").on('click','#now',function(){
   var souc = document.getElementById("now");
-  var tar = document.getElementById("skPlayer");
+  var tar = document.getElementById("music_163");
   if($(tar).hasClass("act")){
   souc.style.color = "#ffffff";
   $(tar).removeClass("act");
@@ -43,30 +46,44 @@
   ;
 </script>
 
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
 
-
-
-
-<div id="skPlayer">
-  <script>
-    var player = new skPlayer({
-    autoplay: false,
-    //可选项,自动播放,默认为false,true/false
-    listshow: true,
-    //可选项,列表显示,默认为true,true/false
-    mode: 'listloop',
-    //可选项,循环模式,默认为'listloop'
-    //'listloop',列表循环
-    //'singleloop',单曲循环
-    music: {
-    //必需项,音乐配置
-    type: 'cloud',
-    //必需项,网易云方式指定填'cloud'
-    source: 2108961358
-    //必需项,网易云音乐歌单id
-    //登录网易云网页版,在网页地址中拿到
-    // ... playlist?id=317921676
-    }
-    });
-  </script>
+<div id="music_163"
+    class="aplayer"
+    data-id="2108961358"
+    data-server="netease"
+    data-type="playlist"
+    data-theme="#C73E3A"
+    style="max-height: 260px;background-color: rgba(255,255,255,0.6)">
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+<style>
+.aplayer .aplayer-list{
+    max-height: 150px!important;
+    background-image: url(https://picture-1256084113.cos.ap-beijing.myqcloud.com/function-image/music-bm.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.aplayer .aplayer-lrc::before,
+.aplayer .aplayer-lrc::after{
+    display:none!important;
+}
+
+.aplayer .aplayer-list ol li.aplayer-list-light {
+    background: #E87A9060;
+}
+
+.aplayer .aplayer-list ol li:hover {
+    background: #E87A9060;
+}
+
+.aplayer .aplayer-list ol li{
+    border-top-color: #ffffff00
+}
+</style>

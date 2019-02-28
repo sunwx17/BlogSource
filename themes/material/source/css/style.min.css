@@ -2842,24 +2842,25 @@ body::before {
 .music:hover {
     box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
 }
-#skPlayer {
+#music_163 {
+	width: 400px;
     display:block;
-    bottom: 300px;
+    bottom: 120px;
     right: -420px;
     z-index: 10;
     position: fixed !important;
     font-family: 'Iosevka', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'!important;
-    background-color:rgba(255,255,255,.4)!important;
+    /*background-color:rgba(255,255,255,.4)!important;*/
     /*transition: background-color .36s cubic-bezier(.6,0,.1,1),box-shadow .36s cubic-bezier(.6,0,.1,1),transform .36s cubic-bezier(.6,0,.1,1);*/
     -webkit-transition: all .36s ease-out;
     -moz-transition: all .36s ease-out;
     -o-transition: all .36s ease-out;
     transition: all .36s ease-out;
 }
-#skPlayer .skPlayer-list{
+#music_163 .music_163-list{
     background-color:rgba(255,255,255,.4)!important;
 }
-#skPlayer.act{
+#music_163.act{
     /*transform: translate(-420px, 0);*/
     right: 0;
 }
