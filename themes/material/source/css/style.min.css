@@ -899,6 +899,12 @@ a {
     max-width: calc(100% + 32px);
     margin-left: -16px;
 }
+
+.fill-width {
+	min-width: calc(100% + 32px);
+}
+
+
 #scheme-Paradox .page-navigator {
     display: inline-block;
     margin: 20px 0;

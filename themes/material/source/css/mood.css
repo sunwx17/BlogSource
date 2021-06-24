@@ -1,4 +1,4 @@
-.shuoshuo_piece{
+.mood_piece{
     width: calc(100% - 40px);
     margin: 0px 20px 20px;
     margin-top: 20px !important;
@@ -10,12 +10,12 @@
     transition: transform 0.5s ease-in-out;
 }
 
-.shuoshuo_piece:hover{
+.mood_piece:hover{
     transform: translateY(-4px);
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
 }
 
-.shuoshuo_date{
+.mood_date{
     position: relative;
     left: -32px;
     font-size: 14px;
@@ -24,7 +24,7 @@
     border-radius: 0px 3px 3px 0px;
 }
 
-.shuoshuo_date::after{
+.mood_date::after{
     position: absolute;
     content: "";
     top: 100%;
@@ -40,6 +40,6 @@
     border-right-color: inherit;
 }
 
-.shuoshuo_content{
+.mood_content{
     margin-top: 6px;
 }
